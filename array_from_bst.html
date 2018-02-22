@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Return Array From BST</title>
+  </head>
+
+  <body>
+
+    <script type="text/javascript">
+      class Node {
+        constructor(val, left, right) {
+          this.val = val;
+          this.left = left;
+          this.right = right;
+        }
+      }
+
+      let k = new Node('k');
+      let j = new Node('j');
+      let i = new Node('i', j, k);
+      let h = new Node('h', null, i);
+      let g = new Node('g');
+      let f = new Node('f');
+      let e = new Node('e', f, g);
+      let d = new Node('d');
+      let c = new Node('c', d);
+      let b = new Node('b', c, e);
+      let a = new Node('a', b, h);
+
+      console.dir(a);
+
+      function traverse(node) {
+        if (!node.left && !node.right) {
+          return node;
+        } else if (node.left && node.right) {
+          return [node].concat(traverse(node.left)).concat(traverse(node.right));
+        } else if (node.left) {
+          return [node].concat(traverse(node.left));
+        } else {
+          return [node].concat(traverse(node.right));
+        }
+      }
+
+      console.dir(traverse(a));
+
+    </script>
+  </body>
+  
