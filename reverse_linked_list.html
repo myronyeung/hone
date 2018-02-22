@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Reverse Linked List</title>
+  </head>
+
+  <body>
+
+    <h1>Reverse Linked List</h1>
+    <p>Open browser console log to see results</p>
+    
+    <script type="text/javascript">
+      class Node {
+        constructor(val, next) {
+          this.val = val;
+          this.next = next;
+        }
+      }
+
+      let d = new Node('d', null);
+      let c = new Node('c', d);
+      let b = new Node('b', c);
+      let head = new Node('a', b);
+
+      console.log(`Starting list: ${print(head)}`);
+
+
+      function reverse(head) {
+        let currNode = head,
+            nextNode = null,
+            prevNode = null;
+
+        while (currNode != null) {
+          nextNode = currNode.next;
+          currNode.next = prevNode;
+          prevNode = currNode;
+          currNode = nextNode;
+        }
+
+        return head = prevNode;
+      }
+
+      head = reverse(head);
+
+      console.log(`Reversed list: ${print(head)}`);
+
+      function print(head) {
+        let currNode = head,
+            str = "";
+
+        while (currNode !== null) {
+          str += `${currNode.val} -> `;
+          str += currNode.next ? "" : "null ->"; //end of list.
+          currNode = currNode.next;
+        }
+
+        return str;
+      }
+    </script>
+  </body>
+  
