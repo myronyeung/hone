@@ -1,2 +1,2 @@
 # hone
-Exercises to keep me sharp.
+Exercises to sharpen my skills.
